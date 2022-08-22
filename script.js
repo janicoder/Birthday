@@ -1,8 +1,16 @@
-//document.getElementById('body').style.backgroundColor = 'rgb(150, 240, 255)';
-let nav_button = document.getElementsByClassName('nav-button');
+const body = document.getElementById('body');
+let color_button = document.getElementById('color-button');
 
-function changeColor(target) {
-    target.style.backgroundColor = '#f5f5f5';    
-}
+function makeLight() {
+    body.style.backgroundColor = 'rgb(150, 240, 255)';
+    color_button.removeEventListener('click', makeLight);
+    color_button.addEventListener('click', makeDark);
+};
 
-nav_button.addEventListener('click', changeColor);
+function makeDark() {
+    body.style.backgroundColor = 'rgb(2, 92, 133)';
+    color_button.removeEventListener('click', makeDark);
+    color_button.addEventListener('click', makeLight);
+};
+
+color_button.addEventListener('click', makeLight);
