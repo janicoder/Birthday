@@ -1,6 +1,7 @@
-var song1 = document.getElementById('allOfMe');
-var song2 = document.getElementById('duskTillDawn');
+var songs = document.getElementsByClassName('song');
 
-song1.onended = function() {
-    song2.play();
+for (var i = 0; i < songs.length; i++) {
+    songs[i].onended = function() {
+        songs[i + 1].play();
+    } 
 }
