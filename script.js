@@ -2,8 +2,12 @@
 const body = document.getElementById('body');
 const alert = document.getElementById('alert');
 const color_button = document.getElementById('color-button');
+const memories_button = document.getElementById('memories_button');
 var alertColor = alert.backgroundColor;
+var alertFontColor = alert.style.color;
+var memories = document.getElementsByClassName('memories');
 
+memories_button.style.cursor = 'pointer';
 //Functions for Color Button
 function makeLight() {
     //Background Color of page is set to Light Blue
@@ -41,6 +45,7 @@ color_button.addEventListener('mouseover', function name() {
     color_button.style.cursor = 'pointer';
 })
 
+
 //Alert
 
 //Functions for Alert
@@ -56,8 +61,10 @@ function hideAlert() {
 function hoverAlertAdd() {
     //Alert's current color is stored for later use
     alertColor = alert.style.backgroundColor;
+    alertFontColor = alert.style.color;
     //Alert color changes when mouse hovers over it
-    alert.style.backgroundColor = 'rgb(170, 245, 100)';
+    alert.style.backgroundColor = 'rgb(220,200,260)';
+    alert.style.color = 'rgb(0, 0, 0)';
     //Mouse is changed to a hand when it hovers over the alert
     alert.style.cursor = 'pointer';
     //Alert text is changed to 'Click to Hide'
@@ -70,6 +77,7 @@ function hoverAlertAdd() {
 function hoverAlertReset() {
     //Alert's color is set to the color it was before the mouse hovers over it
     alert.style.backgroundColor = alertColor;
+    alert.style.color = alertFontColor;
     //Alert text is changed to the default text
     alert.innerHTML = '<h1>HAPPY BIRTHDAY BUBBA!!!</h1>';
     //Old listener is removed and new listener is added
@@ -80,3 +88,28 @@ function hoverAlertReset() {
 //Intializing event listeners for Alert
 alert.addEventListener('click', hideAlert);
 alert.addEventListener('mouseenter', hoverAlertAdd);
+
+
+//Memories
+
+
+
+//functions for hiding memories
+function hideMemories() {
+    for (var i = 0; i < memories.length; i ++) {
+        memories[i].style.display = 'none';
+    }
+    memories_button.removeEventListener('click', hideMemories);
+    memories_button.addEventListener('click', showMemories);
+}
+
+function showMemories() {
+    for (var i = 0; i < memories.length; i ++) {
+        memories[i].style.display = 'block';
+    }
+    memories_button.removeEventListener('click', showMemories);
+    memories_button.addEventListener('click', hideMemories);
+}
+
+addEventListener('load', hideMemories);
+memories_button.addEventListener("click", showMemories);
