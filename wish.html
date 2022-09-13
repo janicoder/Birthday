@@ -31,7 +31,14 @@
             <ul>
                 <a href="./index.html"><li class="nav-button">Home</li></a>
                 <!--<a ><li class="nav-button" id="memories_button">Memories</li></a>-->
-                <a href="#"><li class="nav-button" id="playPause">Play</li></a>                
+                <div id="media">
+                    <a href="#"><li class="nav-button music-button" id="back"><img id="backIcon" src="./rss/icons/back.png"></li></a>
+                    <a href="#"><li class="nav-button music-button" id="playPause"><img id="playIcon" src="./rss/icons/play.png"><img id="pauseIcon" src="./rss/icons/pause.png"></li></a>
+                    <a href="#"><li class="nav-button music-button" id="next"><img id="nextIcon" src="./rss/icons/next.png"></li></a>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="volSlider">
+                    </div>
+                </div>              
                 <a ><li id="color-button">Lighten</li></a>
             </ul>
         </nav>

@@ -17,15 +17,24 @@ if(c>=songs.length){
 
 // End of music.js
 var playPause = document.getElementById("playPause");
+var playIcon = document.getElementById("playIcon");
+var pauseIcon = document.getElementById("pauseIcon");
 
 playPause.addEventListener('click', function(){
     if (!a.paused) {
-        a.pause()
-        playPause.innerHTML = "Play";
-        playPause.style.backgroundColor = "rgb(19, 17, 150)";
+        a.pause();
+        playIcon.style.display = "inline";
+        pauseIcon.style.display = "none";
     } else {
         a.play()
-        playPause.innerHTML = "Pause";
-        playPause.style.backgroundColor = "rgb(20, 10, 100)";
+        pauseIcon.style.display = "inline";
+        playIcon.style.display = "none";
     }
 });
+
+//Volume Control
+var slider = document.getElementById("volSlider");
+a.volume = 0.5;
+slider.addEventListener("change", function(e) {
+    a.volume = e.currentTarget.value / 100;
+})
