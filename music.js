@@ -14,3 +14,18 @@ if(c>=songs.length){
 }
 
 });
+
+// End of music.js
+var playPause = document.getElementById("playPause");
+
+playPause.addEventListener('click', function(){
+    if (!a.paused) {
+        a.pause()
+        playPause.innerHTML = "Play";
+        playPause.style.backgroundColor = "rgb(19, 17, 150)";
+    } else {
+        a.play()
+        playPause.innerHTML = "Pause";
+        playPause.style.backgroundColor = "rgb(20, 10, 100)";
+    }
+});

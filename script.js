@@ -2,12 +2,9 @@
 const body = document.getElementById('body');
 const alert = document.getElementById('alert');
 const color_button = document.getElementById('color-button');
-const memories_button = document.getElementById('memories_button');
 var alertColor = alert.backgroundColor;
 var alertFontColor = alert.style.color;
-var memories = document.getElementsByClassName('memories');
 
-memories_button.style.cursor = 'pointer';
 //Functions for Color Button
 function makeLight() {
     //Background Color of page is set to Light Blue
@@ -88,28 +85,3 @@ function hoverAlertReset() {
 //Intializing event listeners for Alert
 alert.addEventListener('click', hideAlert);
 alert.addEventListener('mouseenter', hoverAlertAdd);
-
-
-//Memories
-
-
-
-//functions for hiding memories
-function hideMemories() {
-    for (var i = 0; i < memories.length; i ++) {
-        memories[i].style.display = 'none';
-    }
-    memories_button.removeEventListener('click', hideMemories);
-    memories_button.addEventListener('click', showMemories);
-}
-
-function showMemories() {
-    for (var i = 0; i < memories.length; i ++) {
-        memories[i].style.display = 'block';
-    }
-    memories_button.removeEventListener('click', showMemories);
-    memories_button.addEventListener('click', hideMemories);
-}
-
-addEventListener('load', hideMemories);
-memories_button.addEventListener("click", showMemories);
