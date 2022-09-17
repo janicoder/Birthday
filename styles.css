@@ -147,8 +147,12 @@ nav a{
 }
 
 #playIcon, #nextIcon, #backIcon {
-    width: 48px;
-    
+    width: 48px;    
+}
+
+
+#backLink {
+    visibility: hidden;
 }
 
 .music-button {
@@ -171,4 +175,12 @@ nav a{
     width: 200px;
     margin-top: 20px;
     margin-bottom: 0px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
 }

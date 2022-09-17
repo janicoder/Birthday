@@ -1,5 +1,5 @@
 var c = 0;
-var songs = ["./rss/music/Perfect.mp3", "./rss/music/AgarTumSathHo.mp3", "./rss/music/DuskTillDawn.mp3", "./rss/music/CheapThrills.mp3", "./rss/music/Snap.mp3", "./rss/music/LoveNwantiti.mp3", "./rss/music/LoveMeLikeYouDo.mp3", "./rss/music/AgarTumSathHo.mp3"];
+var songs = ["./rss/music/Honey.mp3", "./rss/music/KabhiAditi.mp3", "./rss/music/Sorry.mp3"];
 var initial = true;
 var a = document.getElementById("au");
 
@@ -8,6 +8,7 @@ a.addEventListener('ended', function(){
 document.getElementById("backLink").style.visibility = "visible";
 document.getElementById("au").src=songs[c]; 
 a.load();  
+a.play()
 console.log(c); 
 c++;
 
