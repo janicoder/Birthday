@@ -39,14 +39,19 @@ li {
 }
 
 /* Navigation Bar */
+nav * {
+    color: white;
+}
+
 nav {
     display: flex;
     position: sticky;
     justify-content: center;
     margin: 30px;
+    margin-bottom: 0px;
     padding: 30px;
     top: -10px;
-    background-color: rgb(15, 77, 211);
+    background-color: rgb(17, 15, 104);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     z-index: 10;
@@ -61,17 +66,17 @@ nav ul {
 
 nav li {
     color: rgb(255, 255, 255);
-    background-color: rgb(19, 17, 150);
+    background-color: rgba(17, 15, 104, 0);
     display: block;
     padding: 16px;
     border-radius: 5px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: 1.5rem;
     width: 115px;
 }
 
 nav li:hover {
-    border: 1px solid rgb(10, 119, 192);
+    background-color: rgba(24, 21, 185, 0.2);
 }
 
 nav a{
@@ -99,11 +104,13 @@ nav a{
     align-items: center;
     flex-direction: column;
     margin: 30px;
+    margin-top: 0px;
     padding: 50px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     opacity: 0.9;
+    color: white;
 }
 
 .list li{
@@ -146,13 +153,12 @@ nav a{
     width: 48px;
 }
 
-#playIcon, #nextIcon, #backIcon {
+#playIcon {
     width: 48px;    
 }
 
-
-#backLink {
-    visibility: hidden;
+#nextIcon, #backIcon {
+    width: 40px;
 }
 
 .music-button {
@@ -163,8 +169,6 @@ nav a{
     padding-top: 10px;
     padding-left: 0;
     padding-right: 0;
-    margin-right: 4px;
-    margin-left: 4px;
 }
 
 #media {
@@ -183,4 +187,10 @@ nav a{
 
 .inline {
     display: inline;
+}
+
+
+/* special-button */
+.invisible {
+    visibility: hidden;
 }

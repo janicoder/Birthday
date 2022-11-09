@@ -5,6 +5,7 @@ const color_button = document.getElementById('color-button');
 var alertColor = alert.backgroundColor;
 var alertFontColor = alert.style.color;
 
+
 //Functions for Color Button
 function makeLight() {
     //Background Color of page is set to Light Blue

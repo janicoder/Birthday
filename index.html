@@ -15,7 +15,7 @@
 
 
     <body id="body">
-        <audio id="au">
+        <audio id="songs">
             
         </audio>
         
@@ -36,10 +36,16 @@
                         <div id="midLink" class="inline"><a href="#"><li class="nav-button music-button" id="playPause"><img id="playIcon" src="./rss/icons/play.png"><img id="pauseIcon" src="./rss/icons/pause.png"></li></a></div>
                         <div id="nextLink" class="inline"><a href="#"><li class="nav-button music-button" id="next"><img id="nextIcon" src="./rss/icons/next.png"></li></a></div>
                     </div>
-                        <div class="slidecontainer">
+
+                    <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="50" class="slider" id="volSlider">
                     </div>
-                </div>       
+
+                    <div id="nowPlaying">
+                        <p id="songName">Press Play</p>
+                    </div>
+                </div>
+
                 <a ><li id="color-button">Lighten</li></a>
             </ul>
         </nav>
@@ -70,7 +76,7 @@
                 <hr style="width:100%;margin: 30px 0px;">
             </div>
         </div>
-        <script src="./music.js" async></script>
+        <script src="./music.js"></script>
         <script src="./script.js" async></script>
         
     </body>

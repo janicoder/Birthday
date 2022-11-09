@@ -1,20 +1,21 @@
 var c = 0;
 var songs = ["./rss/music/Honey.mp3", "./rss/music/KabhiAditi.mp3", "./rss/music/Sorry.mp3"];
+const songName = ["You're my Honey Bunch", "Kabhi Kabhi Bubburi", "Sorry Na"];
 var initial = true;
-var a = document.getElementById("au");
-
+var a = document.getElementById("songs");
+const nowPlaying = document.getElementById("songName");
 
 a.addEventListener('ended', function(){
-document.getElementById("backLink").style.visibility = "visible";
-document.getElementById("au").src=songs[c]; 
-a.load();  
-a.play()
-console.log(c); 
-c++;
+    document.getElementById("songs").src= songs[c]; 
+    a.load();
+    a.play();
+    nowPlaying.innerHTML = songName[c];
+    console.log(c); 
+    c++;
 
-if(c>=songs.length){
-    c=0;
-}
+    if(c>=songs.length){
+        c=0;
+    }
 
 });
 
@@ -30,6 +31,7 @@ playPause.addEventListener('click', function(){
         pauseIcon.style.display = "none";
     } else {
         if(initial) {
+            nowPlaying.innerHTML = songName[c];
             a.src = songs[0];
             initial = false;
             c++;
@@ -42,10 +44,11 @@ playPause.addEventListener('click', function(){
 
 var next = document.getElementById("next");
 next.addEventListener('click', function(){
-    document.getElementById("au").src=songs[c]; 
+    document.getElementById("songs").src=songs[c]; 
     a.load();
     a.play();
-    console.log(c); 
+    console.log(c);
+    nowPlaying.innerHTML = songName[c];
     c++;
     
     if(c>=songs.length){
@@ -57,18 +60,24 @@ next.addEventListener('click', function(){
 
 var back = document.getElementById("back");
 back.addEventListener('click', function(){
-    if (c != 0) {
-        c--;
-        c--;
-    document.getElementById("au").src=songs[c];
+    if (!(c===0)) {
+    c--;
+    c--;
+    nowPlaying.innerHTML = songName[c];
+    document.getElementById("songs").src=songs[c];
     a.load();
     a.play();
     console.log(c); 
-    c++;
-    
-    if(c>=songs.length){
-        c=0;
-    }
+    c++;       
+    };
+    if (c <= -1) {
+        c = 0;
+        nowPlaying.innerHTML = songName[c];
+        document.getElementById("songs").src=songs[c];
+        a.load();
+        a.play();
+        console.log(c); 
+        c++;       
     };
 });
 
