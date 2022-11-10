@@ -72,7 +72,7 @@ nav li {
     border-radius: 5px;
     border: 2px solid transparent;
     font-size: 1.5rem;
-    width: 115px;
+    width: 115px;    
 }
 
 nav li:hover {
@@ -193,4 +193,23 @@ nav a{
 /* special-button */
 .invisible {
     visibility: hidden;
+}
+
+
+.button {
+    position: relative;
+    border: none;
+    transition: .4s ease-in;
+    z-index: 1;
+}
+
+.button::before, .button::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+}
+
+.button:hover {
+    background-color: hsl(246, 70%, 30%);
+    box-shadow: 0 0 5px hsl(246, 70%, 30%), 0 0 25px hsl(246, 70%, 30%), 0 0 50px hsl(246, 70%, 30%), 0 0 200px hsl(246, 70%, 30%);
 }
