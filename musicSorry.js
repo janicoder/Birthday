@@ -3,87 +3,76 @@ var songs = ["./rss/music/Honey.mp3", "./rss/music/KabhiAditi.mp3", "./rss/music
 const songName = ["You're my Honey Bunch", "Kabhi Kabhi Bubburi", "Sorry Na"];
 var initial = true;
 var a = document.getElementById("songs");
-const nowPlaying = document.getElementById("songName");
-
-a.addEventListener('ended', function(){
-    document.getElementById("songs").src= songs[c]; 
-    a.load();
-    a.play();
-    nowPlaying.innerHTML = songName[c];
-    console.log(c); 
-    c++;
-
-    if(c>=songs.length){
-        c=0;
-    }
-
-});
-
-// End of music.js
+var nowPlaying = document.getElementById("songName");
 var playPause = document.getElementById("playPause");
 var playIcon = document.getElementById("playIcon");
 var pauseIcon = document.getElementById("pauseIcon");
+var next = document.getElementById("next");
+var back = document.getElementById("back");
 
+next.style.display = "none";
+back.style.display = "none";
+
+// End of declerations and initializations
+playPause.addEventListener("click", function() {
+    if(initial) {
+        nowPlaying.innerHTML = songName[c];
+        a.src = songs[0];
+        initial = false;
+        next.style.display = "inline";
+        back.style.display = "inline";
+    }
+});
 playPause.addEventListener('click', function(){
     if (!a.paused) {
         a.pause();
         playIcon.style.display = "inline";
         pauseIcon.style.display = "none";
     } else {
-        if(initial) {
-            nowPlaying.innerHTML = songName[c];
-            a.src = songs[0];
-            initial = false;
-            c++;
-        }
         a.play();
         pauseIcon.style.display = "inline";
         playIcon.style.display = "none";
     }
 });
 
-var next = document.getElementById("next");
 next.addEventListener('click', function(){
-    document.getElementById("songs").src=songs[c]; 
-    a.load();
-    a.play();
-    console.log(c);
-    nowPlaying.innerHTML = songName[c];
-    c++;
-    
-    if(c>=songs.length){
-        c=0;
-    }
+    updateSong("next");
+
     pauseIcon.style.display = "inline";
     playIcon.style.display = "none";
 });
 
-var back = document.getElementById("back");
 back.addEventListener('click', function(){
-    if (!(c===0)) {
-    c--;
-    c--;
-    nowPlaying.innerHTML = songName[c];
-    document.getElementById("songs").src=songs[c];
-    a.load();
-    a.play();
-    console.log(c); 
-    c++;       
-    };
-    if (c <= -1) {
-        c = 0;
-        nowPlaying.innerHTML = songName[c];
-        document.getElementById("songs").src=songs[c];
-        a.load();
-        a.play();
-        console.log(c); 
-        c++;       
-    };
+    updateSong("back");
 });
 
+function updateSong(updateType) {
+    if (updateType === "next") {
+        if(!initial) {
+            if (c <= songs.length) {
+                c++;
+            } else {
+                c = 0;
+            }
+        }
+        document.getElementById("songs").src = songs[c];
+        a.load();
+        a.play();
+        nowPlaying.innerHTML = songName[c];
+
+    } else if (updateType === "back") {
+        c--;
+        document.getElementById("songs").src = songs[c];
+        a.load();
+        a.play();
+        nowPlaying.innerHTML = songName[c];
+    }
+};
+
+a.addEventListener('ended', updateSong("next"));
 //Volume Control
 var slider = document.getElementById("volSlider");
 a.volume = 0.5;
 slider.addEventListener("change", function(e) {
     a.volume = e.currentTarget.value / 100;
-})
+});
