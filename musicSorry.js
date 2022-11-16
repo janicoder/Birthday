@@ -9,6 +9,7 @@ var playIcon = document.getElementById("playIcon");
 var pauseIcon = document.getElementById("pauseIcon");
 var next = document.getElementById("next");
 var back = document.getElementById("back");
+var updateType;
 
 next.style.display = "none";
 back.style.display = "none";
