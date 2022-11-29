@@ -79,7 +79,14 @@ nav li:hover {
     background-color: rgba(24, 21, 185, 0.2);
 }
 
-nav a{
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: blue;
     text-decoration: none;
     color: black;
     font-size: 1.2rem;

@@ -1,15 +1,15 @@
-var c = 0;
-var songs = ["./rss/music/Honey.mp3", "./rss/music/KabhiAditi.mp3", "./rss/music/Sorry.mp3"];
+let c = 0;
+let songs = ["./rss/music/Honey.mp3", "./rss/music/KabhiAditi.mp3", "./rss/music/Sorry.mp3"];
 const songName = ["You're my Honey Bunch", "Kabhi Kabhi Bubburi", "Sorry Na"];
-var initial = true;
-var a = document.getElementById("songs");
-var nowPlaying = document.getElementById("songName");
-var playPause = document.getElementById("playPause");
-var playIcon = document.getElementById("playIcon");
-var pauseIcon = document.getElementById("pauseIcon");
-var next = document.getElementById("next");
-var back = document.getElementById("back");
-var updateType;
+let initial = true;
+let a = document.getElementById("songs");
+let nowPlaying = document.getElementById("songName");
+let playPause = document.getElementById("playPause");
+let playIcon = document.getElementById("playIcon");
+let pauseIcon = document.getElementById("pauseIcon");
+let next = document.getElementById("next");
+let back = document.getElementById("back");
+let updateType;
 
 next.style.display = "none";
 back.style.display = "none";
@@ -72,7 +72,7 @@ function updateSong(updateType) {
 
 a.addEventListener('ended', updateSong("next"));
 //Volume Control
-var slider = document.getElementById("volSlider");
+let slider = document.getElementById("volSlider");
 a.volume = 0.5;
 slider.addEventListener("change", function(e) {
     a.volume = e.currentTarget.value / 100;

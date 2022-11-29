@@ -1,14 +1,14 @@
-var c = 0;
-var songs = ["./rss/music/Perfect.mp3", "./rss/music/AgarTumSathHo.mp3", "./rss/music/DuskTillDawn.mp3", "./rss/music/CheapThrills.mp3", "./rss/music/Snap.mp3", "./rss/music/LoveNwantiti.mp3", "./rss/music/LoveMeLikeYouDo.mp3"];
+let c = 0;
+let songs = ["./rss/music/Perfect.mp3", "./rss/music/AgarTumSathHo.mp3", "./rss/music/DuskTillDawn.mp3", "./rss/music/CheapThrills.mp3", "./rss/music/Snap.mp3", "./rss/music/LoveNwantiti.mp3", "./rss/music/LoveMeLikeYouDo.mp3"];
 const songName = ["Perfect", "Agar Tum Sath Ho", "Dusk Till Dawn", "Cheap Thrills", "Snap", "Love Nwantiti", "Love me like you do"];
-var initial = true;
-var a = document.getElementById("songs");
-var nowPlaying = document.getElementById("songName");
-var playPause = document.getElementById("playPause");
-var playIcon = document.getElementById("playIcon");
-var pauseIcon = document.getElementById("pauseIcon");
-var next = document.getElementById("next");
-var back = document.getElementById("back");
+let initial = true;
+let a = document.getElementById("songs");
+let nowPlaying = document.getElementById("songName");
+let playPause = document.getElementById("playPause");
+let playIcon = document.getElementById("playIcon");
+let pauseIcon = document.getElementById("pauseIcon");
+let next = document.getElementById("next");
+let back = document.getElementById("back");
 
 next.style.display = "none";
 back.style.display = "none";
@@ -71,7 +71,7 @@ function updateSong(updateType) {
 
 a.addEventListener('ended', updateSong("next"));
 //Volume Control
-var slider = document.getElementById("volSlider");
+let slider = document.getElementById("volSlider");
 a.volume = 0.5;
 slider.addEventListener("change", function(e) {
     a.volume = e.currentTarget.value / 100;

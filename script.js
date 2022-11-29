@@ -2,8 +2,8 @@
 const body = document.getElementById('body');
 const alert = document.getElementById('alert');
 const color_button = document.getElementById('color-button');
-var alertColor = alert.backgroundColor;
-var alertFontColor = alert.style.color;
+let alertColor = alert.backgroundColor;
+let alertFontColor = alert.style.color;
 
 
 //Functions for Color Button
